@@ -7,7 +7,7 @@
 # run docker image from locally built image
 > docker run -d -p 50053:8088 friendlyserver   // -d for running it in background //50053:8088 is the exposed port
 
-# connect with docker hub and push to directory, a directory maruftuhin/server_grpc_sample is created  i docker hub at firsht, then login
+# connect with docker hub and push to directory, a directory maruftuhin/server_grpc_sample is created  i docker hub at first, then login
 
 > docker login
 > docker tag friendlyserver maruftuhin/server_grpc_sample:tag
