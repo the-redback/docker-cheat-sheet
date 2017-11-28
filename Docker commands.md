@@ -1,4 +1,4 @@
-# =================[Build and run a docker image]======================
+### =================[Build and run a docker image]======================
 
 #### build docker images from docker file, goto dockerfile directory and command: 
 > docker build -t friendlyserver .
@@ -21,7 +21,7 @@
 
 
 
-# ================[List of images and containers]======================
+### ================[List of images and containers]======================
 
 
 
@@ -33,7 +33,7 @@
 > docker ps -a   	#-a for all
 
 
-# ==============[ Stop/remove a container or image]=====================
+### ==============[ Stop/remove a container or image]=====================
 
 #### stop a container
 > docker stop <container_id>
@@ -54,7 +54,7 @@
 
 
 
-# =============[Making change in a container/image]=====================
+### =============[Making change in a container/image]=====================
 
 
 #### creates a container for a image and enters it directory
@@ -78,7 +78,7 @@
 > docker commit <container_id> new_id_of_image
 
 
-# ===================[Executing container commands]====================
+### ===================[Executing container commands]====================
 
 #### start a exited container
 > docker start <container id>
@@ -95,7 +95,7 @@
 > exit
 
 
-# =============[Names of conatiners or Images]========================
+### =============[Names of conatiners or Images]========================
 
 #### rename existing container
 > docker rename <old_name> new_name
@@ -105,7 +105,7 @@
 > docker run -it --name newName <container_id> bash
 
 
-# ===========[ Copy files from a container]===========================
+### ===========[ Copy files from a container]===========================
 
 #### Create a text file inside container. insert the container and command:
 
@@ -120,7 +120,7 @@
 
 
 
-# =================[Container hostnames]==============================
+### =================[Container hostnames]==============================
 
 #### gives a new hostname to the container. it doesn't change the Names of container. but when user is inside the  container, it sees the hostname, in this case, it's root@test. 
 > docker run -it -h test.local <image_id> bash
@@ -128,7 +128,7 @@
 
 
 
-# ===================[ Handling volumes]===============================
+### ===================[ Handling volumes]===============================
 
 #### it links between a directory of host and  directory of container. in command, left side of  ":" defines the source of host direcotry and right side defines destination into container.In this case, changing in ~/data of directory of host machine also takes place changing in container automatically
 
@@ -183,7 +183,7 @@
 > docker run --rm -v /foo -v awesome:/bar busybox top
 
 
-# ====================[ Docker killer!!! :P ]=================================
+### ====================[ Docker killer!!! :P ]=================================
 
 #### stop all container in one command
 
