@@ -50,7 +50,7 @@
 > docker rm <container_name>
 
 # remove more than one image/container
-> docker rm <comtainer id> <container_id>
+> docker rm <container id> <container_id>
 
 
 
