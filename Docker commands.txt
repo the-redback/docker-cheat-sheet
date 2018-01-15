@@ -183,6 +183,9 @@
 > docker run --rm -v /foo -v awesome:/bar busybox top
 
 
+# ===================[ DOcker childs ]==================================
+> docker history <image_id>
+
 # ====================[ Docker killer!!! :P ]=================================
 
 # stop all container in one command
@@ -202,7 +205,9 @@
 
 # Start refresh
 //Dangerous!!! Deletes everything!!
-
 sudo systemctl stop docker.service
 sudo rm -rf /var/lib/docker
 sudo systemctl start docker.service
+#=============[ Alternative ]============
+rm -rf /var/lib/docker
+systemctl restart docker
