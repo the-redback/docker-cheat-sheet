@@ -186,6 +186,6 @@ Remove all images
 
 ### Start refresh
 #### Dangerous!!! Deletes everything!!
-sudo systemctl stop docker.service
-sudo rm -rf /var/lib/docker
-sudo systemctl start docker.service
+> sudo systemctl stop docker.service
+> sudo rm -rf /var/lib/docker
+> sudo systemctl start docker.service
