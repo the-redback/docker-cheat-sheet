@@ -262,8 +262,8 @@ Remove all images
 $ docker rmi $(docker images -q)
 ```
 
-### Start refresh
-#### Dangerous!!! Deletes everything!!
+# Start fresh
+## Dangerous!!! Deletes everything!!
 ```bash
 $ sudo systemctl stop docker.service
 $ sudo rm -rf /var/lib/docker
