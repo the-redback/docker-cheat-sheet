@@ -27,7 +27,7 @@ Pull image from docker hub:
 
 ```console
 $ docker pull maruftuhin/server_grpc_sample:tag
- ```
+```
 
 Run image using tag , [if locally unavailable, it pulls from online]
 
@@ -49,7 +49,6 @@ List of containers
 $ docker ps -a
 # -a for all
 ```
-
 
 ## Stop/remove a container or image
 
@@ -292,11 +291,10 @@ $ docker images -f "dangling=true" -q
 Delete all untagged images
 
 ```console
- $ docker rmi (docker images -f "dangling=true" -q)
+ $ docker rmi $(docker images -f "dangling=true" -q)
 ```
 
-
-## Delete docker images
+## Delete multiple images
 
 Delete images of same name
 ```console
@@ -308,19 +306,19 @@ $ docker rmi --force $(docker images -q imagename | uniq)
 
 ## Docker killer!!! :P
 
-Stop all container in one command
+Stop all container
 
 ```console
 $ docker stop $(docker ps -a -q)
 ```
 
-Delete all container in one command
+Delete all container
 
 ```console
 $ docker rm $(docker ps -a -q)
 ```
 
-Removing all unsed volumes
+Removing all unused volumes
 
 ```console
 $ docker volume prune
