@@ -198,6 +198,8 @@
 # Removing all unsed volumes
 > docker volume prune
 
+# remove untagged dockers
+> docker rmi $(docker images -f "dangling=true" -q)
 
 # Remove all images
 > docker rmi $(docker images -q)
@@ -208,6 +210,7 @@
 sudo systemctl stop docker.service
 sudo rm -rf /var/lib/docker
 sudo systemctl start docker.service
+
 #=============[ Alternative ]============
 rm -rf /var/lib/docker
 systemctl restart docker
