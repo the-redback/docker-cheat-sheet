@@ -46,7 +46,7 @@ docker images
 List all exited containers
 
 ```console
-docker ps -aq -f status=exited
+docker ps -a -q -f status=exited
 ```
 
 List of containers
@@ -330,7 +330,17 @@ docker volume prune
 Remove untagged dockers
 
 ```console
-docker rmi $(docker images -f "dangling=true" -q)
+docker rmi $(docker images -q -f "dangling=true")
+
+or,
+
+docker images -q -f "dangling=true" | xargs docker rmi
+```
+
+Remove stopped containers
+
+```console
+docker ps -aq --no-trunc -f status=exited | xargs docker rm
 ```
 
 Remove all images
