@@ -282,7 +282,7 @@ Anonymous volume. --rm will delete anonymous volume after remove container. here
 docker run --rm -v /foo -v awesome:/bar busybox top
 ```
 
-## UnTagged Images <none>:<none>
+## Untagged Images
 
 Show untagged images
 
@@ -333,7 +333,6 @@ Remove untagged dockers
 docker rmi $(docker images -q -f "dangling=true")
 
 or,
-
 docker images -q -f "dangling=true" | xargs docker rmi
 ```
 
