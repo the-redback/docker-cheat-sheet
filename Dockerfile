@@ -1,7 +1,6 @@
+#This is a sample Image
 FROM ubuntu
 
-ADD ./server ./myBin/
-
-CMD ./myBin/server
-
-EXPOSE 8088
+RUN apt update
+RUN apt install -y nginx
+CMD [“echo”,”Image created”]
