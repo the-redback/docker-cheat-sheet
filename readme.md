@@ -302,8 +302,7 @@ Delete images of same name
 
 ```console
 docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep 'imagename')
-
-# or
+# or,
 docker rmi --force $(docker images -q imagename | uniq)
 ```
 
@@ -331,8 +330,7 @@ Remove untagged dockers
 
 ```console
 docker rmi $(docker images -q -f "dangling=true")
-
-or,
+# or,
 docker images -q -f "dangling=true" | xargs docker rmi
 ```
 
@@ -364,7 +362,6 @@ For bash
 
 ```console
 docker save <image-name> | pv | (eval $(minikube docker-env) && docker load)
-
-Or,
+# or,
 docker save <image-name> | (eval $(minikube docker-env) && docker load)
 ```
