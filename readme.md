@@ -5,34 +5,34 @@
 Build docker images from docker file, goto dockerfile directory and command: 
 
 ```console
-$ docker build -t friendlyserver .
+$ docker build -t friendlynginx .
 ```
 
 Run docker image from locally built image
 
 ```console
-$ docker run -d -p 50053:8088 friendlyserver
+$ docker run -d -p 50053:8088 friendlynginx
 # -d for running it in background //50053:8088 is the exposed port
 ```
 
-Connect with docker hub and push to directory, a directory maruftuhin/server_grpc_sample is created  i docker hub at first, then login
+Connect with docker hub and push to directory, a directory maruftuhin/nginx is created  i docker hub at first, then login
 
 ```console
 $ docker login
-$ docker tag friendlyserver maruftuhin/server_grpc_sample:tag
-$ docker push maruftuhin/server_grpc_sample
+$ docker tag friendlynginx maruftuhin/nginx:tag
+$ docker push maruftuhin/nginx
 ```
 
 Pull image from docker hub:
 
 ```console
-$ docker pull maruftuhin/server_grpc_sample:tag
+$ docker pull maruftuhin/nginx:tag
 ```
 
 Run image using tag , [if locally unavailable, it pulls from online]
 
 ```console
-$ docker run -p -d 4000:8088 maruftuhin/server_grpc_sample:tag
+$ docker run -p -d 4000:8088 maruftuhin/nginx:tag
 ```
 
 ## List of images and containers
@@ -106,7 +106,6 @@ $ apt-get install fish
 $ apt-get install php    #installs latest php
 ```
 
-
 Exit container directory
 
 ```console
@@ -147,7 +146,6 @@ $ echo "hello world";
 $ exit
 ```
 
-
 ## Names of conatiners or Images
 
 Rename existing container
@@ -184,13 +182,11 @@ $ docker cp ./test1.txt  containerName:/
 
 ## Container hostnames
 
-Gives a new hostname to the container. it doesn't change the Names of container. but when user is inside the  container, it sees the hostname, in this case, it's root@test. 
+Gives a new hostname to the container. it doesn't change the Names of container. but when user is inside the  container, it sees the hostname, in this case, it's root@test.
 
 ```console
 $ docker run -it -h test.local <image_id> bash
 ```
-
-
 
 ## Handling volumes
 
@@ -297,6 +293,7 @@ Delete all untagged images
 ## Delete multiple images
 
 Delete images of same name
+
 ```console
 $ docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep 'imagename')
 
@@ -346,11 +343,13 @@ $ sudo rm -rf /var/lib/docker
 $ sudo systemctl start docker.service
 ```
 
-
 ## Copy Local images to Minikube
 
 For bash
 
 ```console
 $ docker save <image-name> | pv | (eval $(minikube docker-env) && docker load)
+
+Or,
+$ docker save <image-name> | (eval $(minikube docker-env) && docker load)
 ```
