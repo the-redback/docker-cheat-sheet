@@ -293,7 +293,7 @@ docker images -f "dangling=true" -q
 Delete all untagged images
 
 ```console
- docker rmi $(docker images -f "dangling=true" -q)
+docker images -f "dangling=true" -q | xargs docker rmi
 ```
 
 ## Delete multiple images
@@ -301,9 +301,9 @@ Delete all untagged images
 Delete images of same name
 
 ```console
-docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep 'imagename')
+docker images --format '{{.Repository}}:{{.Tag}}' | grep 'imagename' | xargs docker rmi
 # or,
-docker rmi --force $(docker images -q imagename | uniq)
+docker images -q imagename | uniq | xargs docker rmi --force
 ```
 
 ## Docker killer!!! :P
@@ -311,13 +311,13 @@ docker rmi --force $(docker images -q imagename | uniq)
 Stop all container
 
 ```console
-docker stop $(docker ps -a -q)
+docker ps -a -q | xargs docker stop
 ```
 
 Delete all container
 
 ```console
-docker rm $(docker ps -a -q)
+docker ps -a -q | xargs docker rm
 ```
 
 Removing all unused volumes
@@ -329,8 +329,6 @@ docker volume prune
 Remove untagged dockers
 
 ```console
-docker rmi $(docker images -q -f "dangling=true")
-# or,
 docker images -q -f "dangling=true" | xargs docker rmi
 ```
 
@@ -343,7 +341,7 @@ docker ps -aq --no-trunc -f status=exited | xargs docker rm
 Remove all images
 
 ```console
-docker rmi $(docker images -q)
+docker images -q | xargs docker rmi
 ```
 
 ## Start fresh
